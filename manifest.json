@@ -1,0 +1,26 @@
+{
+  "name": "AI資格コーチ",
+  "short_name": "資格コーチ",
+  "description": "複数の資格試験の学習を記録・可視化し、AIが学習状況を分析するAI資格コーチ",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#faf9f7",
+  "theme_color": "#3557e8",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

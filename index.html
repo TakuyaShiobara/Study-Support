@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>AI資格コーチ</title>
+<meta name="description" content="複数の資格試験の学習を記録・可視化し、AIが学習状況を分析するAI資格コーチ" />
+<meta name="theme-color" content="#3557e8" />
+<link rel="manifest" href="./manifest.json" />
+<link rel="apple-touch-icon" href="./icons/icon-192.png" />
+<link rel="stylesheet" href="./css/style.css" />
+<script>
+window.addEventListener('error', function (e) {
+  var pre = document.createElement('pre');
+  pre.style.cssText = 'position:fixed;inset:0;z-index:9999;background:#fff;color:#c0392b;padding:16px;font-size:12px;white-space:pre-wrap;overflow:auto;margin:0;';
+  pre.textContent = 'エラーが発生しました:\n' + (e.message || e) + '\n' + (e.filename || '') + ':' + (e.lineno || '') + ':' + (e.colno || '');
+  document.body.appendChild(pre);
+}, true);
+window.addEventListener('unhandledrejection', function (e) {
+  var pre = document.createElement('pre');
+  pre.style.cssText = 'position:fixed;inset:0;z-index:9999;background:#fff;color:#c0392b;padding:16px;font-size:12px;white-space:pre-wrap;overflow:auto;margin:0;';
+  var reason = e.reason;
+  pre.textContent = '読み込みエラー:\n' + (reason && reason.message ? reason.message : String(reason));
+  document.body.appendChild(pre);
+});
+</script>
+</head>
+<body>
+
+<!-- SPAルーター（js/main.js）がこの中身をハッシュに応じて丸ごと差し替える -->
+<div class="app" id="app-root"></div>
+
+<script type="module">
+import("./js/main.js").catch(function (err) {
+  var pre = document.createElement("pre");
+  pre.style.cssText = "position:fixed;inset:0;z-index:99999;background:#fff;color:#c0392b;padding:16px;font-size:12px;white-space:pre-wrap;overflow:auto;margin:0;font-family:monospace;line-height:1.6;";
+  pre.textContent = "モジュールの読み込みに失敗しました:\n\n" + (err && err.message ? err.message : String(err));
+  document.body.appendChild(pre);
+});
+</script>
+</body>
+</html>

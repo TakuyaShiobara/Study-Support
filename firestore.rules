@@ -1,0 +1,25 @@
+rules_version = '2';
+
+// ============================================================
+// firestore.rules
+// このMVPはFirebase Authenticationを使わない前提のため、
+// 「users/me」配下のみ read/write を許可している。
+//
+// ⚠️ 注意:
+// このルールは「自分ひとりだけが使う」ことを前提にした簡易的な設定です。
+// 認証を挟まないため、Firestoreのプロジェクト設定（APIキー等）が
+// 漏洩すると誰でもデータを読み書きできてしまいます。
+// 複数人での利用や公開を検討する場合は、
+// 必ず Firebase Authentication を導入し、
+// request.auth.uid を用いたルールに変更してください。
+// ============================================================
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/me/{document=**} {
+      allow read, write: if true;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
