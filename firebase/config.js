@@ -18,19 +18,19 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebas
 // --- Firebase プロジェクト設定 ---------------------------------
 // Firebaseコンソール > プロジェクトの設定 > 全般 > マイアプリ から取得
 const firebaseConfig = {
-  apiKey: "YOUR_FIREBASE_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyCyrgUayTCuZeuEfGjJ8koxcPEM4rjEqXc",
+  authDomain: "studysupport-7a7b0.firebaseapp.com",
+  projectId: "studysupport-7a7b0",
+  storageBucket: "studysupport-7a7b0.firebasestorage.app",
+  messagingSenderId: "367629314654",
+  appId: "1:367629314654:web:de2a790df133c87c4122cf",
 };
 
 // --- Gemini API 設定 --------------------------------------------
 // https://aistudio.google.com/apikey で取得したAPIキーを設定してください。
 // ローカル開発時は、このファイルをコピーして config.local.js 等にし、
 // .env 相当の値をビルド前に注入する運用も可能です（README参照）。
-export const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY";
+export const GEMINI_API_KEY = "AQ.Ab8RN6JQbimRa1fexIR-Vnv_I2_t2JEjplgede49FRcDnOQjXw";
 // "-latest" のついたエイリアスはGoogle側で自動的に新しいモデルへ切り替わるため、
 // 個別モデルの廃止（例: gemini-2.0-flashは2026年6月に廃止）に強くなります。
 export const GEMINI_MODEL = "gemini-flash-latest";
