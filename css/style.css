@@ -948,7 +948,6 @@ input.field--date { width: auto; max-width: 170px; }
   font-variant-numeric: tabular-nums;
 }
 .stat-card__value small { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
-.stat-card__goal { font-size: 11px; color: var(--text-tertiary); margin-top: 4px; }
 
 .stat-grid-4 {
   display: grid;

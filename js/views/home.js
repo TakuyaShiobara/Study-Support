@@ -70,12 +70,10 @@ export function template() {
         <div class="stat-card">
           <div class="stat-card__label">今日の学習時間</div>
           <div class="stat-card__value" id="today-minutes">0<small>分</small></div>
-          <div class="stat-card__goal" id="today-goal">目標: -</div>
         </div>
         <div class="stat-card">
           <div class="stat-card__label">今週の学習時間</div>
           <div class="stat-card__value" id="week-minutes">0<small>分</small></div>
-          <div class="stat-card__goal" id="week-goal">目標: -</div>
         </div>
       </div>
 
@@ -146,7 +144,7 @@ export async function init() {
   const [units, logs] = await Promise.all([listUnits(activeCert.id), listLogs(activeCert.id)]);
 
   renderProgressRing(units);
-  renderTodayWeek(activeCert, logs);
+  renderTodayWeek(logs);
   renderUnitList(units);
   loadAdvice(activeCert, units, logs);
 }
@@ -168,7 +166,7 @@ function renderProgressRing(units) {
   document.getElementById("ring-pct").textContent = `${pct}%`;
 }
 
-function renderTodayWeek(cert, logs) {
+function renderTodayWeek(logs) {
   const today = todayStr();
   const weekDates = currentWeekDates();
   const todayMinutes = logs.filter((l) => l.date === today).reduce((s, l) => s + (l.minutes || 0), 0);
@@ -176,8 +174,6 @@ function renderTodayWeek(cert, logs) {
 
   document.getElementById("today-minutes").innerHTML = `${todayMinutes}<small>分</small>`;
   document.getElementById("week-minutes").innerHTML = `${formatMinutes(weekMinutes)}`;
-  document.getElementById("today-goal").textContent = `目標: ${cert.dailyGoalMinutes ?? 90}分`;
-  document.getElementById("week-goal").textContent = `目標: ${formatMinutes(cert.weeklyGoalMinutes ?? 600)}`;
 }
 
 function renderUnitList(units) {

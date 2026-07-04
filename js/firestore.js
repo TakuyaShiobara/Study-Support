@@ -4,7 +4,7 @@
 // 認証は使わず、ユーザーは固定で "me" とする。
 //
 // コレクション構成:
-//   users/me/certs/{certId}                        … 資格（試験名・試験日・目標学習時間）
+//   users/me/certs/{certId}                        … 資格（試験名・試験日）
 //   users/me/certs/{certId}/units/{unitId}          … 単元（進捗率・メモ・学習時間集計）
 //   users/me/certs/{certId}/logs/{logId}            … 学習記録（1回分の学習ログ）
 //   users/me/achievements/{achievementId}           … 資格取得履歴（取得済み資格名・取得日）
@@ -60,8 +60,6 @@ export async function addCert({ name, examDate }) {
   const ref = await addDoc(certsCol(), {
     name: name || "無題の資格",
     examDate: examDate || "",
-    dailyGoalMinutes: 90,
-    weeklyGoalMinutes: 600,
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
   });

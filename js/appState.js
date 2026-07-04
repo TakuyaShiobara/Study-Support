@@ -45,8 +45,6 @@ function writeCertsCache(certs) {
       id: c.id,
       name: c.name,
       examDate: c.examDate,
-      dailyGoalMinutes: c.dailyGoalMinutes,
-      weeklyGoalMinutes: c.weeklyGoalMinutes,
     }));
     localStorage.setItem(CERTS_CACHE_KEY, JSON.stringify(minimal));
   } catch {
