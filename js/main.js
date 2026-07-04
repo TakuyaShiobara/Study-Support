@@ -17,6 +17,7 @@ import * as ReportView from "./views/report.js";
 import * as AiAnalysisView from "./views/ai-analysis.js";
 import * as SettingsView from "./views/settings.js";
 import * as HelpView from "./views/help.js";
+import * as AchievementsView from "./views/achievements.js";
 
 // ルートパス -> { view, navPage(タブ/ドロワーのハイライト用キー) }
 const ROUTES = {
@@ -28,6 +29,7 @@ const ROUTES = {
   ai: { view: AiAnalysisView, navPage: "ai" },
   settings: { view: SettingsView, navPage: "settings" },
   help: { view: HelpView, navPage: "help" },
+  achievements: { view: AchievementsView, navPage: "achievements" },
 };
 
 function parseHash() {

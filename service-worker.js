@@ -10,7 +10,7 @@
 // キャッシュのバージョンを上げると、古いキャッシュは自動的に破棄される。
 // ============================================================
 
-const CACHE_VERSION = "v4";
+const CACHE_VERSION = "v5";
 const CACHE_NAME = `study-coach-${CACHE_VERSION}`;
 
 const PRECACHE_URLS = [
@@ -23,6 +23,7 @@ const PRECACHE_URLS = [
   "./js/main.js",
   "./js/certUi.js",
   "./js/unitUi.js",
+  "./js/achievementUi.js",
   "./js/charts.js",
   "./js/firestore.js",
   "./js/gemini.js",
@@ -34,6 +35,7 @@ const PRECACHE_URLS = [
   "./js/views/ai-analysis.js",
   "./js/views/settings.js",
   "./js/views/help.js",
+  "./js/views/achievements.js",
   "./firebase/config.js",
   "./icons/icon-192.png",
   "./icons/icon-512.png",

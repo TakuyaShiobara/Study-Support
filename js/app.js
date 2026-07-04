@@ -221,6 +221,7 @@ export const ICONS = {
   trend: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>`,
   scale: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 8l-4 6h8l-4-6ZM17 8l-4 6h8l-4-6Z"/></svg>`,
   arrowLeft: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>`,
+  award: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="m8.5 13.5-1.6 6.4 5.1-2.7 5.1 2.7-1.6-6.4"/></svg>`,
 };
 
 // 資格アイコン・単元バッジに使う色付きアイコンのローテーション
@@ -271,6 +272,7 @@ const TAB_ITEMS = [
 
 // サイドバードロワーに表示するメニュー（主要5画面はタブバー側にあるため、ここには含めない）
 const DRAWER_NAV_ITEMS = [
+  { page: "achievements", label: "資格取得履歴", href: "#/achievements", icon: ICONS.award },
   { page: "settings", label: "設定", href: "#/settings", icon: ICONS.gear },
   { page: "help", label: "ヘルプ・使い方", href: "#/help", icon: ICONS.help },
 ];
