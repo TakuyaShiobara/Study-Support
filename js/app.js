@@ -467,7 +467,11 @@ export function setupKeyboardAvoidance() {
   if (window.visualViewport) {
     const vv = window.visualViewport;
     const adjust = () => {
-      const inset = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+      // キーボードの高さ ≒ レイアウト全体の高さ - 実際に見えている高さ。
+      // offsetTop（スクロール量）は無関係なので含めない（含めると値が異常になっていたバグ修正）。
+      const raw = window.innerHeight - vv.height;
+      // 万が一大きすぎる値になっても、モーダルが画面外へ飛び出さないよう上限を設ける
+      const inset = Math.min(Math.max(0, raw), window.innerHeight * 0.5);
       document.documentElement.style.setProperty("--keyboard-inset", `${inset}px`);
     };
     vv.addEventListener("resize", adjust);
