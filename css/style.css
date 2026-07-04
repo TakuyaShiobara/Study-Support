@@ -672,6 +672,8 @@ textarea.field, input.field, select.field {
 }
 textarea.field:focus, input.field:focus, select.field:focus { border-color: var(--accent); }
 
+input.field--date { width: auto; max-width: 170px; }
+
 /* ---------- AIチャット ---------- */
 .chat-wrap {
   display: flex;
@@ -1020,6 +1022,38 @@ textarea.field:focus, input.field:focus, select.field:focus { border-color: var(
 }
 .unit-card__menu-btn:hover { background: var(--border); }
 .unit-card__menu-btn svg { width: 17px; height: 17px; }
+
+/* ---------- 資格取得履歴カード ---------- */
+.achievement-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 15px 16px;
+  margin-bottom: 10px;
+}
+.achievement-badge {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+}
+.achievement-badge svg { width: 17px; height: 17px; }
+.achievement-card__body { flex: 1; min-width: 0; }
+.achievement-card__name { font-size: 14.5px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.achievement-card__date { font-size: 11.5px; color: var(--text-tertiary); margin-top: 6px; }
+.achievement-card__memo { font-size: 12.5px; color: var(--text-secondary); margin-top: 6px; line-height: 1.5; white-space: pre-wrap; }
+.achievement-card__menu-btn {
+  width: 30px; height: 30px; flex-shrink: 0;
+  border: none; background: transparent; color: var(--text-tertiary);
+  border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: center;
+}
+.achievement-card__menu-btn:hover { background: var(--border); }
+.achievement-card__menu-btn svg { width: 17px; height: 17px; }
 
 /* ---------- 学習内容タイプ選択グリッド ---------- */
 .type-grid {

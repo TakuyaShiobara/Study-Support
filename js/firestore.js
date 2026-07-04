@@ -7,6 +7,7 @@
 //   users/me/certs/{certId}                        … 資格（試験名・試験日・目標学習時間）
 //   users/me/certs/{certId}/units/{unitId}          … 単元（進捗率・メモ・学習時間集計）
 //   users/me/certs/{certId}/logs/{logId}            … 学習記録（1回分の学習ログ）
+//   users/me/achievements/{achievementId}           … 資格取得履歴（取得済み資格名・取得日）
 // ============================================================
 
 import {
@@ -32,6 +33,8 @@ const unitsCol = (certId) => collection(db, "users", USER_ID, "certs", certId, "
 const unitDocRef = (certId, unitId) => doc(db, "users", USER_ID, "certs", certId, "units", unitId);
 const logsCol = (certId) => collection(db, "users", USER_ID, "certs", certId, "logs");
 const logDocRef = (certId, logId) => doc(db, "users", USER_ID, "certs", certId, "logs", logId);
+const achievementsCol = () => collection(db, "users", USER_ID, "achievements");
+const achievementDocRef = (id) => doc(db, "users", USER_ID, "achievements", id);
 
 const EMPTY_BY_TYPE = { input: 0, practice: 0, mock: 0, review: 0, video: 0, other: 0 };
 
@@ -162,4 +165,34 @@ export async function addLog(certId, { date, unitId, unitName, type, minutes, me
 
 export async function deleteLog(certId, logId) {
   await deleteDoc(logDocRef(certId, logId));
+}
+
+/* ================= 資格取得履歴（Achievements） ================= */
+
+/** 取得済み資格の一覧を取得日の新しい順で取得する */
+export async function listAchievements() {
+  const q = query(achievementsCol(), orderBy("acquiredDate", "desc"));
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach((d) => list.push({ id: d.id, ...d.data() }));
+  return list;
+}
+
+/** 取得済み資格を新規追加する。戻り値は新しいachievementId */
+export async function addAchievement({ name, acquiredDate, memo }) {
+  const ref = await addDoc(achievementsCol(), {
+    name: name || "無題の資格",
+    acquiredDate: acquiredDate || "",
+    memo: memo || "",
+    createdAt: serverTimestamp(),
+  });
+  return ref.id;
+}
+
+export async function updateAchievement(id, data) {
+  await updateDoc(achievementDocRef(id), data);
+}
+
+export async function deleteAchievement(id) {
+  await deleteDoc(achievementDocRef(id));
 }

@@ -27,7 +27,7 @@ export function template() {
 
     <form id="record-form" style="display:none;">
       <label class="field-label" style="margin-top:0;">日付</label>
-      <input class="field" type="date" id="f-date" required />
+      <input class="field field--date" type="date" id="f-date" required />
 
       <label class="field-label">単元</label>
       <select class="field" id="f-unit"></select>
