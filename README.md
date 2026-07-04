@@ -118,8 +118,7 @@ users/
   me/
     certs/
       {certId}                       … 資格
-        name, examDate,
-        dailyGoalMinutes, weeklyGoalMinutes
+        name, examDate
         units/
           {unitId}                     … 単元
             name, memo, progress(0-100),
